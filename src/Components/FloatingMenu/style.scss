@@ -1,0 +1,81 @@
+@import "src/Shared/style.scss";
+
+$menu-size: 300px;
+#floating-menu {
+  position: fixed;
+  left: 0;
+  top: $mini-header-size;
+  z-index: 1;
+
+  display: none;
+
+  width: 0;
+  height: calc(100% - #{$mini-header-size});
+  overflow: hidden;
+
+  transition: width 0.3s;
+
+  &:after {
+    content: "";
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(#000, 0.7);
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: visibility 0.3s, opacity 0.3s;
+  }
+
+  &.show-menu {
+    width: $menu-size;
+
+    &:after {
+      opacity: 1;
+
+      visibility: visible;
+    }
+  }
+
+  .menu-list {
+    position: relative;
+    z-index: 4;
+
+    background: $darkner;
+
+    .menu-item {
+      width: $menu-size;
+
+      transition: background-color 0.3s;
+
+      .clickable {
+        padding: 0 15px;
+
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 50px;
+
+        cursor: pointer;
+      }
+
+      &.active {
+        background: $dark;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  #floating-menu {
+    display: flex;
+  }
+}

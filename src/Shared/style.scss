@@ -1,0 +1,19 @@
+$black: #15202b;
+$darkner: lighten($black, 5%);
+$darker: lighten($black, 8%);
+$dark: lighten($black, 10%);
+
+$white: #ebeef0;
+$lightner: darken($white, 5%);
+$lighter: darken($white, 8%);
+$light: darken($white, 10%);
+
+$maincolor: #49a8df;
+
+$mainfont: "Roboto", sans-serif;
+$googlemainfont: "Roboto:400,700";
+
+$monofont: "Roboto Mono", sans-serif;
+$googlemonofont: "Roboto+Mono:400,700";
+
+$mini-header-size: 70px;

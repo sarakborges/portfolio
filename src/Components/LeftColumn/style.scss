@@ -1,0 +1,53 @@
+@import "src/Shared/style.scss";
+
+#left-column {
+  position: sticky;
+  left: 0;
+  top: 70px;
+  z-index: 0;
+
+  flex: 1;
+  max-height: calc(100vh - 70px);
+  overflow: auto;
+  scrollbar-width: thin;
+
+  .contact-list {
+    .contact-item {
+      display: flex;
+      align-items: center;
+
+      .contact-icon {
+        width: 26px;
+
+        text-align: center;
+        font-size: 24px;
+      }
+
+      .contact-text {
+        padding: 0 10px;
+
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1400px) {
+  #left-column {
+    flex: unset;
+
+    width: 375px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #left-column {
+    position: static;
+
+    max-height: none;
+    padding: 0 30px;
+
+    background: $black;
+  }
+}

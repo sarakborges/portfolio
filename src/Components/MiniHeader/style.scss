@@ -1,0 +1,148 @@
+@import "src/Shared/style.scss";
+
+#mini-header {
+  display: flex;
+  justify-items: center;
+
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 2;
+
+  width: 100%;
+  height: $mini-header-size;
+
+  background: $black;
+  border-bottom: 1px solid $dark;
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-title {
+      display: flex;
+      align-items: center;
+
+      padding-right: 30px;
+
+      transition: opacity 0.3s;
+
+      &.hide-title {
+        opacity: 0;
+      }
+
+      .header-avatar {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 100%;
+        box-shadow: 0 0 5px 2px $black;
+
+        background-image: url("../../Shared/assets/avatar.png");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .header-text {
+        padding-left: 20px;
+
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-family: $monofont;
+        font-size: 20px;
+      }
+    }
+
+    .menu-list {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+
+      .menu-item {
+        margin: 0 15px;
+
+        border: solid transparent;
+        border-width: 2px 0;
+
+        transition: border-color 0.3s;
+
+        .clickable {
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 30px;
+          letter-spacing: 0.5px;
+          font-family: $monofont;
+
+          cursor: pointer;
+        }
+
+        &.active {
+          border-bottom-color: $maincolor;
+        }
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+
+      font-size: 32px;
+
+      .menu-toggle-button {
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
+}
+
+@media (min-width: 751px) and (max-width: 1100px) {
+  #mini-header {
+    .header-inner {
+      .header-title {
+        .header-text {
+          font-size: 16px;
+          letter-spacing: 3px;
+        }
+      }
+
+      .menu-list {
+        .menu-item {
+          border: 0;
+
+          .clickable {
+            line-height: 160%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  #mini-header {
+    position: fixed;
+
+    .header-inner {
+      .header-title {
+        .header-text {
+          font-size: 18px;
+          letter-spacing: 1.5px;
+        }
+
+        &.hide-title {
+          opacity: 1;
+        }
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .menu-list {
+        display: none;
+      }
+    }
+  }
+}
